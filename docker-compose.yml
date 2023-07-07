@@ -1,0 +1,54 @@
+version: "3.5"
+services:
+
+  backend:
+    container_name: backend-${APP_NAME}
+    build:
+      context: ./backend
+      dockerfile: docker/dockerfile.local
+    image: backend-${APP_NAME}:local
+    ports:
+      - "3000:3000"
+      - "9229:9229"
+    volumes:
+      - ./backend:/app/
+      - ${OCI_KEY_FILE}:/root/.oci/oracle-api.pem 
+    environment:
+      APP_NAME: ${APP_NAME}
+      BACKEND_ORIGIN: ${BACKEND_ORIGIN}
+      CONNECTION: ${CONNECTION}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      CONNECTION_STRING: ${CONNECTION_STRING}
+      OCI_USER: ${OCI_USER}
+      OCI_FINGERPRINT: ${OCI_FINGERPRINT}
+      OCI_TENANCY: ${OCI_TENANCY}
+      OCI_REGION: ${OCI_REGION}
+      OCI_KEY_FILE: ${OCI_KEY_FILE}
+      OCI_ADB_ID: ${OCI_ADB_ID}
+    networks:
+      local_network:
+        aliases:
+          - backend
+
+  frontend:
+    container_name: frontend-${APP_NAME}
+    environment: 
+      APP_NAME: ${APP_NAME}
+      GOOGLE_APPLICATION_CREDENTIALS: /app/secret-firebase.json
+    build:
+      context: ./frontend
+      dockerfile: docker/dockerfile.local
+    image: frontend-${APP_NAME}:local
+    ports:
+      - "8100:8100"
+    volumes:
+      - ./frontend:/app/
+    networks:
+      local_network:
+        aliases:
+          - frontend
+
+networks:
+  local_network:
+    name: ${APP_NAME}-${INFR_NAME}-network

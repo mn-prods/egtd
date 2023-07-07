@@ -1,0 +1,22 @@
+{
+  "folders": [
+    {
+      "path": "backend"
+    },
+    {
+      "path": "frontend"
+    },
+    {
+      "name": "meta",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "backend/": true,
+      "frontend/": true,
+      "environments/": true,
+      "technical_docs/": true
+    }
+  }
+}
