@@ -16,11 +16,11 @@ help:
 	
 ##start: @ docker-compose up
 start: 
-	docker-compose --env-file ./dev.env up -d
+	docker compose --env-file ./dev.env up -d
 
 ##stop: @ docker-compose down
 stop: 
-	docker-compose --env-file ./dev.env down
+	docker compose --env-file ./dev.env down
 
 ##build: @ docker-compose build
 build:
@@ -28,7 +28,7 @@ build:
 
 ##logs: @ show logs -follow
 logs:
-	docker-compose logs --follow
+	docker compose logs --follow
 
 ##restart: @ stop -> start
 restart: stop start

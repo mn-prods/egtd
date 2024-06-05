@@ -41,7 +41,7 @@ services:
       dockerfile: docker/dockerfile.local
     image: frontend-${APP_NAME}:local
     ports:
-      - "8100:8100"
+      - "4200:4200"
     volumes:
       - ./frontend:/app/
     networks:
