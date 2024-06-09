@@ -26,6 +26,10 @@ services:
       OCI_REGION: ${OCI_REGION}
       OCI_KEY_FILE: ${OCI_KEY_FILE}
       OCI_ADB_ID: ${OCI_ADB_ID}
+      MONGO_CONN_STRING: ${MONGO_CONN_STRING}
+      MONGO_CERT_FILE: ${MONGO_CERT_FILE}
+      MONGO_PASSWORD: ${MONGO_PASSWORD}
+      MONGO_USER: ${MONGO_USER}
     networks:
       local_network:
         aliases:
