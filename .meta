@@ -1,6 +1,6 @@
 {
   "projects": {
-    "backend": "git@github.com:mn-prods/egtd-book-backend.git",
-    "frontend": "git@github.com:mn-prods/egtd-book-frontend.git"
+    "backend": "git@github.com:mn-prods/egtd-backend.git",
+    "frontend": "git@github.com:mn-prods/egtd-frontend.git"
   }
 }
