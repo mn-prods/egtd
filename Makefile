@@ -12,15 +12,15 @@ endif
 
 ##help: @ show commands of this makefile
 help:
-	@fgrep -h "##" $(MAKEFILE_LIST)| sort | fgrep -v fgrep | tr -d '##'  | awk 'BEGIN {FS = ":.*?@ "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+	@grep -F -h "##" $(MAKEFILE_LIST)| sort | grep -Fv fgrep | tr -d '##'  | awk 'BEGIN {FS = ":.*?@ "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 	
 ##start: @ docker-compose up
 start: 
-	docker compose --env-file ./dev.env up -d
+	docker compose up -d
 
 ##stop: @ docker-compose down
 stop: 
-	docker compose --env-file ./dev.env down
+	docker compose down
 
 ##build: @ docker-compose build
 build:
