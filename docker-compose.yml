@@ -30,6 +30,8 @@ services:
       MONGO_CERT_FILE: ${MONGO_CERT_FILE}
       MONGO_PASSWORD: ${MONGO_PASSWORD}
       MONGO_USER: ${MONGO_USER}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
+      GOOGLE_REDIRECT_URI: ${GOOGLE_REDIRECT_URI}
     networks:
       local_network:
         aliases:
